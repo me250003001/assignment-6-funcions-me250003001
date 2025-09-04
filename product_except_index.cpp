@@ -7,7 +7,16 @@ vector<long long> productExceptIndex(const vector<int>& arr) {
     vector<long long> output(size, 1);
 
     // TODO: complete the function as per instructions
-    
+    for (int i=1;i< size; i++){
+      output[i]=output[i-1]*arr[i-1];
+ }
+ long long rightProduct=1;
+ for (int i= size-1; i>=0; i--){
+   output[i] *=rightProduct;
+   rightProduct*=arr[i];
+   }
+   ;
+     return output;
 }
 
 int main() {
@@ -22,4 +31,3 @@ int main() {
 
     return 0;
 }
-
